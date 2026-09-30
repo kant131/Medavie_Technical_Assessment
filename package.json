@@ -1,0 +1,28 @@
+{
+  "name": "medavie-contact-automation",
+  "version": "1.0.0",
+  "description": "WebdriverIO v9 + Cucumber (TypeScript) automation of the Medavie Contact page in English and French",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "wdio run ./wdio.conf.ts",
+    "test:headless": "cross-env HEADLESS=true wdio run ./wdio.conf.ts",
+    "test:en": "cross-env TAGS=@english wdio run ./wdio.conf.ts",
+    "test:fr": "cross-env TAGS=@french wdio run ./wdio.conf.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "@wdio/cli": "^9.0.0",
+    "@wdio/cucumber-framework": "^9.0.0",
+    "@wdio/globals": "^9.0.0",
+    "@wdio/local-runner": "^9.0.0",
+    "@wdio/spec-reporter": "^9.0.0",
+    "cross-env": "^7.0.3",
+    "tsx": "^4.16.0",
+    "typescript": "^5.5.0"
+  }
+}
