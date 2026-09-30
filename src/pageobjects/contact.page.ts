@@ -2,17 +2,11 @@ import { browser, expect } from '@wdio/globals';
 import BasePage from './base.page.js';
 
 class ContactPage extends BasePage {
-    /** The Contact page is identified by its main <h1> heading ("Contact" / "Coordonnées"). */
     async verifyIsDisplayed(pageHeading: string): Promise<void> {
         const heading = await this.findVisibleByText('h1', pageHeading);
         await expect(heading).toBeDisplayed();
     }
 
-    /**
-     * Returns the text of every list item that belongs to the section introduced by
-     * the given heading, i.e. all <li> elements after that heading and before the
-     * next heading of the same or higher level.
-     */
     async getSectionItems(sectionHeading: string): Promise<string[]> {
         const heading = await this.findVisibleByText('h2, h3, h4', sectionHeading);
         await heading.scrollIntoView({ block: 'center' });
